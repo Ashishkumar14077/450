@@ -6,7 +6,7 @@ vector<int> merge(vector<int> v1, vector<int> v2) //For merge sort
 {
     vector<int> result;
     int i=0,j=0,flag1=0,flag2=0;
-    while(i!=v1.size() && j!=v2.size());
+    while(i<v1.size() && j<v2.size())
     {
         if(v1[i]<v2[j])
         {
@@ -15,7 +15,7 @@ vector<int> merge(vector<int> v1, vector<int> v2) //For merge sort
             if(i!=v1.size()-1)
                 flag1=1;
         }
-        else if(v1[i]<v2[j])
+        else if(v1[i]>v2[j])
         {
             result.push_back(v2[j]);
             j++;
@@ -59,11 +59,10 @@ int find_median(vector<int> v)
 }
 int main()
 {
-    vector<int> array1={2,5,8,12,25,39};  //first array
-    vector<int> array2={3,4,13,29,35,43}; //second array
-    
+    vector<int> array1={2,5,8,12,25};  //first array
+    vector<int> array2={3,4,13,50}; //second array
     vector<int> result=merge(array1, array2); // merged array
     int median=find_median(result);
-    cout<<"median"<<median<<endl;
+    cout<<"median "<<median<<endl;
     return 0;
 }
